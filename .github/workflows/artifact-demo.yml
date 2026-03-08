@@ -1,0 +1,19 @@
+name: Artifact Demo
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate Report
+        run: |
+          mkdir reports
+          echo "Shopping App Test Report" > reports/report.txt
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: shopping-report
+          path: reports/report.txt
